@@ -5,7 +5,16 @@ description: Find why a Solana transaction failed and how to fix it. Use when so
 
 # Solana tx doctor
 
-Turn one failed transaction into one root cause, the log line that proves it, and a fix.
+Turn one failed transaction into one root cause, the log line that proves it, and a fix. The procedure below is the same rule order that `crates/tx-doctor/src/diagnose/rules.rs` runs, so the agent and the CLI give the same answer. It reads only `meta.err` and `meta.logMessages`, and it never needs a model to guess.
+
+## Task routing
+
+| When you are | Read |
+| --- | --- |
+| Fetching a transaction or an address's failures from Helius | [references/helius-endpoints.md](references/helius-endpoints.md) |
+| Mapping a builtin error name or a known program's custom code | [references/error-codes.md](references/error-codes.md) |
+| Reading an `AnchorError ... Error Number: N.` line | [references/anchor-ranges.md](references/anchor-ranges.md) |
+| Diagnosing with the CLI installed | The CLI section below |
 
 ## When to use
 
@@ -42,8 +51,16 @@ tx-doctor --json tx <SIG>             # JSON output
 
 With `HELIUS_API_KEY` set, `tx` also asks Helius Parsed Events for its `decodedError` and prints whether it agrees.
 
-## References
+## Example report
 
-- [references/error-codes.md](references/error-codes.md): builtin error names and known per-program codes.
-- [references/anchor-ranges.md](references/anchor-ranges.md): Anchor framework error ranges.
-- [references/helius-endpoints.md](references/helius-endpoints.md): the Helius calls and their request shapes.
+From `tx-doctor file crates/tx-doctor/tests/fixtures/tx/slippage_exceeded-22fygFWb.json`, a recorded pump.fun buy:
+
+```
+cause        slippage_exceeded
+proof        Program log: AnchorError thrown in programs/pump/src/trade_v3.rs:1001. Error Code: BuySlippageBelowMinTokensOut. Error Number: 6042. Error Message: Slippage: Would buy less tokens than expected min_tokens_out.
+fix          The price moved past your limit before the swap landed. Retry with a fresh quote, raise slippage a little, or add a priority fee so the transaction lands sooner.
+program      6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P (pump.fun)
+instruction  13 (Explorer shows #14)
+```
+
+pump.fun has no code table here, so rule 4 does not match. Rule 5 matches first, because the frame line holds "Error" and "Slippage". That makes the cause slippage, not the program's own error 6042.
