@@ -1,0 +1,192 @@
+{
+  "signature": "2B1FXCLwo7U5HeHSxDKZMxKFZcTskUoYn9nmzfk3t9dFsR9u5W26irqf4cghaazQ5qE2ZyoYHJByEyUsjRUdDMYn",
+  "slot": 465895420,
+  "blockTime": 1793922330,
+  "recorded_at": "2026-11-06T00:20:16Z",
+  "source": "public-rpc",
+  "expected_cause": "program_custom_error",
+  "explorer_url": "https://explorer.solana.com/tx/2B1FXCLwo7U5HeHSxDKZMxKFZcTskUoYn9nmzfk3t9dFsR9u5W26irqf4cghaazQ5qE2ZyoYHJByEyUsjRUdDMYn",
+  "request": {
+    "method": "getTransaction",
+    "params": [
+      "2B1FXCLwo7U5HeHSxDKZMxKFZcTskUoYn9nmzfk3t9dFsR9u5W26irqf4cghaazQ5qE2ZyoYHJByEyUsjRUdDMYn",
+      {
+        "encoding": "json",
+        "maxSupportedTransactionVersion": 0,
+        "commitment": "finalized"
+      }
+    ]
+  },
+  "response": {
+    "blockTime": 1793922330,
+    "meta": {
+      "computeUnitsConsumed": 8689,
+      "costUnits": 13805,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6042
+          }
+        ]
+      },
+      "fee": 6015,
+      "innerInstructions": [],
+      "loadedAddresses": {
+        "readonly": [
+          "2jhQAxCiHhP4kdG5YzgF6m8ZvrXVofTyMaLjzW6MH5WW",
+          "3aUnPBJLWVy62i9jPt8WpVRm6KWuo2qBaWJmEJVdYywS",
+          "3t4JZcueEzTbVP6kLxXrL3VpWx45jDer4eqysweBchNH",
+          "4pEmnimmqXkx9dRbQdLCGuYu9ZhhATjhTkC9wu9ezKUc",
+          "52FSGeeokLpgvgAMdqxyt5Hoc2TbUYj5b8yxrEdZ37Vf",
+          "6WEGfej9B9wjxRs6t4BYpb9iCXd8CpTpJ8fVSNzHCC5y"
+        ],
+        "writable": [
+          "8rxKKfuZc8fQgr6E8tecqf5NjhvWBx4vGwvygJMuGy4J",
+          "AwCyCPZYJSZ93xcVKNK7jR8e1BHzJXq1D4bReNuh9woY",
+          "C1hxYdgUavQpUcighYVLEjDVPwmxEMFdTT5RCmxLnd1m",
+          "DzgYbR8HFQKf8YLCJ6M3E6ricB1xWAiNGZ2TB7X2KDHz",
+          "fmvkxEdTbsBBxDbsiJLxLaZ8nRp2XPvxMSfEU4GLUiw"
+        ]
+      },
+      "logMessages": [
+        "Program KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD invoke [1]",
+        "Program log: Instruction: RefreshReservesBatch",
+        "Program log: AnchorError thrown in programs/klend/src/handlers/handler_refresh_reserves_batch.rs:51. Error Code: GlobalEmergencyMode. Error Number: 6042. Error Message: Emergency mode is enabled.",
+        "Program KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD consumed 8689 of 203000 compute units",
+        "Program KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD failed: custom program error: 0x179a"
+      ],
+      "postBalances": [
+        3787753765,
+        1,
+        33141440,
+        60913920,
+        60913928,
+        60913920,
+        60913920,
+        60913920,
+        33352320,
+        33352320,
+        200726443,
+        33352320,
+        33352320,
+        33352320
+      ],
+      "postTokenBalances": [],
+      "preBalances": [
+        3787759780,
+        1,
+        33141440,
+        60913920,
+        60913928,
+        60913920,
+        60913920,
+        60913920,
+        33352320,
+        33352320,
+        200726443,
+        33352320,
+        33352320,
+        33352320
+      ],
+      "preTokenBalances": [],
+      "rewards": [],
+      "status": {
+        "Err": {
+          "InstructionError": [
+            0,
+            {
+              "Custom": 6042
+            }
+          ]
+        }
+      }
+    },
+    "slot": 465895420,
+    "transaction": {
+      "message": {
+        "accountKeys": [
+          "FDpXA5cs3gxEW2ignCPNTS4Ahqx3RviwBsPXfoFoLFtC",
+          "ComputeBudget111111111111111111111111111111",
+          "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD"
+        ],
+        "addressTableLookups": [
+          {
+            "accountKey": "CfkPgWFCR4uqCMeq8rhjWciaVkN8HUL7oRr9ZYC2joJS",
+            "readonlyIndexes": [
+              38,
+              41,
+              39,
+              43,
+              45,
+              47
+            ],
+            "writableIndexes": [
+              40,
+              46,
+              42,
+              44,
+              37
+            ]
+          }
+        ],
+        "header": {
+          "numReadonlySignedAccounts": 0,
+          "numReadonlyUnsignedAccounts": 2,
+          "numRequiredSignatures": 1
+        },
+        "instructions": [
+          {
+            "accounts": [
+              7,
+              8,
+              2,
+              2,
+              2,
+              10,
+              3,
+              9,
+              2,
+              2,
+              2,
+              10,
+              5,
+              11,
+              2,
+              2,
+              2,
+              10,
+              6,
+              12,
+              2,
+              2,
+              2,
+              10,
+              4,
+              13,
+              2,
+              2,
+              2,
+              10
+            ],
+            "data": "2qdQ7jh5ociVD",
+            "programIdIndex": 2,
+            "stackHeight": 1
+          },
+          {
+            "accounts": [],
+            "data": "3cDeqiGMb6md",
+            "programIdIndex": 1,
+            "stackHeight": 1
+          }
+        ],
+        "recentBlockhash": "HLL8B5dC9hZWWPiNMxcJHSEimZt9qKPbxqXiMjP1Aefz"
+      },
+      "signatures": [
+        "2B1FXCLwo7U5HeHSxDKZMxKFZcTskUoYn9nmzfk3t9dFsR9u5W26irqf4cghaazQ5qE2ZyoYHJByEyUsjRUdDMYn"
+      ]
+    },
+    "transactionIndex": 111,
+    "version": 0
+  }
+}

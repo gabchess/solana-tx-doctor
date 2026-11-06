@@ -1,0 +1,36 @@
+{
+  "signature": "2HvLdT197yodDyQj4drqjhZaU3a8kRzSPnqFHcodx3WSrKMqmgzoqaahnFu3TRE8dvMok1vHWqUWJG2S3x1gA4PC",
+  "source": "litesvm",
+  "expected_cause": "account_not_initialized",
+  "expected_error_code": 3012,
+  "expected_error_name": "AccountNotInitialized",
+  "response": {
+    "slot": 0,
+    "blockTime": null,
+    "meta": {
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 3012
+          }
+        ]
+      },
+      "fee": 5000,
+      "computeUnitsConsumed": 2120,
+      "logMessages": [
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY invoke [1]",
+        "Program log: Instruction: ReadLedger",
+        "Program log: AnchorError caused by account: ledger. Error Code: AccountNotInitialized. Error Number: 3012. Error Message: The program expected this account to be already initialized.",
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY consumed 2120 of 200000 compute units",
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY failed: custom program error: 0xbc4"
+      ]
+    },
+    "transaction": {
+      "signatures": [
+        "2HvLdT197yodDyQj4drqjhZaU3a8kRzSPnqFHcodx3WSrKMqmgzoqaahnFu3TRE8dvMok1vHWqUWJG2S3x1gA4PC"
+      ],
+      "message": {}
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "signature": "22E1h8qCA5z2MwPXj4ZfaZXxLgT3bnorfSh2igkcnnNbNGBdqVBaSwXiyzC7gs1GPvLiWRzbUApDPeTnSLZWtCBu",
+  "slot": 444101740,
+  "blockTime": 1788479691,
+  "recorded_at": "2026-11-06T00:07:53Z",
+  "source": "public-rpc",
+  "expected_cause": "instruction_rejected",
+  "explorer_url": "https://explorer.solana.com/tx/22E1h8qCA5z2MwPXj4ZfaZXxLgT3bnorfSh2igkcnnNbNGBdqVBaSwXiyzC7gs1GPvLiWRzbUApDPeTnSLZWtCBu",
+  "request": {
+    "method": "getTransaction",
+    "params": [
+      "22E1h8qCA5z2MwPXj4ZfaZXxLgT3bnorfSh2igkcnnNbNGBdqVBaSwXiyzC7gs1GPvLiWRzbUApDPeTnSLZWtCBu",
+      {
+        "encoding": "json",
+        "maxSupportedTransactionVersion": 0,
+        "commitment": "finalized"
+      }
+    ]
+  },
+  "response": {
+    "blockTime": 1788479691,
+    "meta": {
+      "computeUnitsConsumed": 5610,
+      "costUnits": 8574,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 101
+          }
+        ]
+      },
+      "fee": 5000,
+      "innerInstructions": [],
+      "loadedAddresses": {
+        "readonly": [
+          "5zpq7DvB6UdFFvpmBPspGPNfUGoBRRCE2HHg5u3gxcsN",
+          "6gMq3mRCKf8aP3ttTyYhuijVZ2LGi14oDsBbkgubfLB3",
+          "DVYXHwLhwALZm94pChALZDJ2b6a7uZTKPXntAGMQtRoM",
+          "8UJgxaiQx5nTrdDgph5FiahMmzduuLTLf5WmsPegYA6W",
+          "25Eax9W8SA3wpCQFhJEGyHhQ2NDHEshZEDzyMNtthR8D",
+          "2UZMvVTBQR9yWxrEdzEQzXWE61bUjqQ5VpJAGqVb3B19",
+          "9VCioxmni2gDLv11qufWzT3RDERhQE4iY5Gf7NTfYyAV",
+          "4VMtKepA6iFwMTJ7bBbdcGxavNRKiDjxxRr1CaB2NnFJ",
+          "3m6i4RFWEDw2Ft4tFHPJtYgmpPe21k56M3FHeWYrgGBz",
+          "93FG52TzNKCnMiasV14Ba34BYcHDb9p4zK4GjZnLwqWR",
+          "35MbvS1Juz2wf7GsyHrkCw8yfKciRLxVpEhfZDZFrB4R"
+        ],
+        "writable": []
+      },
+      "logMessages": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH invoke [1]",
+        "Program log: AnchorError occurred. Error Code: InstructionFallbackNotFound. Error Number: 101. Error Message: Fallback functions are not supported.",
+        "Program dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH consumed 5460 of 599850 compute units",
+        "Program dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH failed: custom program error: 0x65"
+      ],
+      "postBalances": [
+        857941,
+        31347840,
+        1,
+        49155476,
+        7795213,
+        6291851,
+        6291840,
+        54889725,
+        9354251,
+        9354251,
+        1224971,
+        1224960,
+        1224971,
+        1224971,
+        1224970
+      ],
+      "postTokenBalances": [],
+      "preBalances": [
+        862941,
+        31347840,
+        1,
+        49155476,
+        7795213,
+        6291851,
+        6291840,
+        54889725,
+        9354251,
+        9354251,
+        1224971,
+        1224960,
+        1224971,
+        1224971,
+        1224970
+      ],
+      "preTokenBalances": [],
+      "rewards": [],
+      "status": {
+        "Err": {
+          "InstructionError": [
+            1,
+            {
+              "Custom": 101
+            }
+          ]
+        }
+      }
+    },
+    "slot": 444101740,
+    "transaction": {
+      "message": {
+        "accountKeys": [
+          "Dsjz8jVn6hbMnpKQ1noXapUqq5jBsxuEqtou8wZ1nX8K",
+          "AAw1RzSKEXHpm84r7x79cNk5VRPPE8Mt3ezq5uPUbg7z",
+          "ComputeBudget111111111111111111111111111111",
+          "dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH"
+        ],
+        "addressTableLookups": [
+          {
+            "accountKey": "Fpys8GRa5RBWfyeN7AaDUwFGD1zkDCA4z3t4CJLV8dfL",
+            "readonlyIndexes": [
+              131,
+              91,
+              119,
+              1,
+              5,
+              3
+            ],
+            "writableIndexes": []
+          },
+          {
+            "accountKey": "EiWSskK5HXnBTptiS5DH6gpAJRVNQ3cAhTKBGaiaysAb",
+            "readonlyIndexes": [
+              42,
+              157,
+              48,
+              41,
+              49
+            ],
+            "writableIndexes": []
+          }
+        ],
+        "header": {
+          "numReadonlySignedAccounts": 0,
+          "numReadonlyUnsignedAccounts": 2,
+          "numRequiredSignatures": 1
+        },
+        "instructions": [
+          {
+            "accounts": [],
+            "data": "JzwPro",
+            "programIdIndex": 2,
+            "stackHeight": 1
+          },
+          {
+            "accounts": [
+              4,
+              1,
+              0,
+              10,
+              11,
+              12,
+              13,
+              14,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "data": "5WTW8wnSXx5FBPfQb",
+            "programIdIndex": 3,
+            "stackHeight": 1
+          }
+        ],
+        "recentBlockhash": "F6USGcrV7tMvLQwzd58jBgUAEaLZyKMWVTbLrXXbqY2B"
+      },
+      "signatures": [
+        "22E1h8qCA5z2MwPXj4ZfaZXxLgT3bnorfSh2igkcnnNbNGBdqVBaSwXiyzC7gs1GPvLiWRzbUApDPeTnSLZWtCBu"
+      ]
+    },
+    "transactionIndex": 510,
+    "version": 0
+  }
+}
