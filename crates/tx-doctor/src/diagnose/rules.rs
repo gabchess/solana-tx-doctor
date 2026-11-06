@@ -41,6 +41,8 @@ fn builtin_cause(name: &str) -> Option<Cause> {
 fn anchor_cause(code: u64) -> Option<Cause> {
     match code {
         100..=103 | 3005 => Some(Cause::InstructionRejected),
+        // RequireViolated = 2500 through RequireGteViolated = 2506: a require! check in the program's own logic, not an account constraint.
+        2500..=2506 => Some(Cause::ProgramCustomError),
         2000..=2999 => Some(Cause::AnchorConstraintViolation),
         3001 | 3012 => Some(Cause::AccountNotInitialized),
         3002 | 3007 | 3008 | 3014 => Some(Cause::WrongAccountPassed),
@@ -256,6 +258,26 @@ mod tests {
             "custom program error: 0x65",
         );
         assert_eq!(cause_of(custom(0, 101), logs), Cause::InstructionRejected);
+    }
+
+    #[test]
+    fn anchor_2500_is_a_failed_require_check_and_2001_is_a_failed_constraint() {
+        let require = frame(
+            &["Program log: AnchorError thrown in programs/x/src/lib.rs:21. Error Code: RequireViolated. Error Number: 2500. Error Message: A require expression was violated."],
+            "custom program error: 0x9c4",
+        );
+        let has_one = frame(
+            &["Program log: AnchorError caused by account: vault. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated."],
+            "custom program error: 0x7d1",
+        );
+        assert_eq!(
+            cause_of(custom(0, 2500), require),
+            Cause::ProgramCustomError
+        );
+        assert_eq!(
+            cause_of(custom(0, 2001), has_one),
+            Cause::AnchorConstraintViolation
+        );
     }
 
     #[test]

@@ -12,7 +12,8 @@ Use these ranges only when the failing program's frame has such a line. The numb
 | Number | Meaning | Cause |
 | --- | --- | --- |
 | 100 to 103 | Discriminator missing, fallback not supported, or instruction data that does not deserialize | The program did not accept this instruction |
-| 2000 to 2999 | Account constraint failed (`mut`, `has_one`, `seeds`, `owner` and others). 2001 is `ConstraintHasOne`, 2006 is `ConstraintSeeds` | An Anchor account constraint failed |
+| 2000 to 2999, except 2500 to 2506 | Account constraint failed (`mut`, `has_one`, `seeds`, `owner` and others). 2001 is `ConstraintHasOne`, 2006 is `ConstraintSeeds` | An Anchor account constraint failed |
+| 2500 to 2506 | A `require!` family check in the program's logic failed. 2500 is `RequireViolated`, 2501 `RequireEqViolated`, 2502 `RequireKeysEqViolated`, 2505 `RequireGtViolated`. The AnchorError line names the source file and line of the check | The program returned its own error |
 | 3001, 3012 | No discriminator on the account, or the account was never initialized | An account was not initialized |
 | 3002, 3007, 3008, 3014 | Wrong discriminator, owned by another program, wrong program id, not the associated token account | Wrong account passed |
 | 3005 | Not enough account keys for the instruction | The program did not accept this instruction |

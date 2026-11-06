@@ -128,7 +128,7 @@ Results from runs in the image on 2026-11-06. `anchor build` was not run locally
 
 | Suite | Result | What it proves |
 | --- | --- | --- |
-| `crates/tx-doctor/src/diagnose/rules.rs` and `frame.rs` | 13 passed | The first-failed-line rule, frame scoping, per-program codes, and that a non-Anchor 2006 or 3012 stays the program's own error |
+| `crates/tx-doctor/src/diagnose/rules.rs` and `frame.rs` | 14 passed | The first-failed-line rule, frame scoping, per-program codes, that a non-Anchor 2006 or 3012 stays the program's own error, and that an Anchor 2500 `require!` failure is not a constraint failure like 2001 |
 | `crates/tx-doctor/src/sources/` | 9 passed, 1 ignored | Helius request shapes, the fallback scan, the 429 retry, and that errors never contain the key. The ignored test is the live Helius run |
 | `crates/tx-doctor/tests/fixtures.rs` | 2 passed | All 13 recorded mainnet failures decode to the cause in their file name, and the proof line is copied from the logs when the logs have one |
 | `crates/tx-doctor/tests/lab.rs` | 3 passed | The failure-lab logs decode to 6000 `AmountOverLimit`, 2001 `ConstraintHasOne` and 3012 `AccountNotInitialized` |
@@ -186,7 +186,11 @@ lab/                              # LiteSVM recorder for the failure lab
   record.test.mjs                 # runs the program and writes the lab fixtures
 target/deploy/                    # committed on purpose, see the comments below
   failure_lab.so                  # so npm test runs with Node alone, no anchor build
-  failure_lab-keypair.json        # keeps the program id stable, controls nothing on any cluster
+  failure_lab-keypair.json        # only fixes the program id for local tests. The program is
+                                  # not deployed. getAccountInfo returns null on mainnet,
+                                  # devnet and testnet as of 2026-11-06. The secret is
+                                  # public, so anyone could deploy at this address, and the
+                                  # "failure-lab" label means nothing on a live cluster
 skills/solana-tx-doctor/          # the Claude skill
   SKILL.md                        # procedure an agent follows
   references/error-codes.md       # builtin errors and per-program codes
