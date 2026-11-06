@@ -1,0 +1,10 @@
+# Fixture files are raw mainnet transactions. Their accountKey fields hold public
+# Solana addresses (base58 public keys), which generic-api-key misreads as secrets.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "public Solana account addresses in recorded transaction fixtures"
+paths = ['''^crates/tx-doctor/tests/fixtures/tx/[^/]+\.json$''']
+regexTarget = "line"
+regexes = ['''^\s*"accountKey": "[1-9A-HJ-NP-Za-km-z]{32,44}",?$''']

@@ -1,0 +1,34 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: solanafoundation/anchor:v1.0.2
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      # GitHub sets HOME to /github/home in containers; the image keeps rustup, cargo and the Solana platform tools under /root.
+      - name: Build the failure-lab program
+        run: export HOME=/root && anchor build
+      - name: Record failure-lab runs in LiteSVM
+        run: export HOME=/root && cd lab && npm ci --no-audit --no-fund && npm test
+      - name: Format
+        run: export HOME=/root && cargo fmt --all --check
+      - name: Clippy
+        run: export HOME=/root && cargo clippy --workspace --all-targets -- -D warnings
+      - name: Test
+        run: export HOME=/root && cargo test --workspace
+
+  skill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check SKILL.md frontmatter
+        run: python3 scripts/check_skill.py skills/solana-tx-doctor/SKILL.md

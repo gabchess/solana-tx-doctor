@@ -1,0 +1,21 @@
+[package]
+name = "tx-doctor"
+version = "0.1.0"
+description = "Explains why a Solana transaction failed, from its logs, using Helius RPC"
+edition = "2021"
+license = "MIT"
+
+[[bin]]
+name = "tx-doctor"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+dotenvy = "0.15"
+regex = "1"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+httpmock = "0.7"

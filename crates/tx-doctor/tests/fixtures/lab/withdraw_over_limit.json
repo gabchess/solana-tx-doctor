@@ -1,0 +1,36 @@
+{
+  "signature": "x7GdZur9pZNumY8ZGGupCWz96fofwWd8QrdhUiK9reQj27Knmd6Xuc8bLxtwhbfd3NQFk8X5soBtpxtM3ZPFZim",
+  "source": "litesvm",
+  "expected_cause": "program_custom_error",
+  "expected_error_code": 6000,
+  "expected_error_name": "AmountOverLimit",
+  "response": {
+    "slot": 0,
+    "blockTime": null,
+    "meta": {
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6000
+          }
+        ]
+      },
+      "fee": 5000,
+      "computeUnitsConsumed": 3275,
+      "logMessages": [
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY invoke [1]",
+        "Program log: Instruction: Withdraw",
+        "Program log: AnchorError thrown in programs/failure-lab/src/lib.rs:21. Error Code: AmountOverLimit. Error Number: 6000. Error Message: Amount is over the vault limit.",
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY consumed 3275 of 200000 compute units",
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY failed: custom program error: 0x1770"
+      ]
+    },
+    "transaction": {
+      "signatures": [
+        "x7GdZur9pZNumY8ZGGupCWz96fofwWd8QrdhUiK9reQj27Knmd6Xuc8bLxtwhbfd3NQFk8X5soBtpxtM3ZPFZim"
+      ],
+      "message": {}
+    }
+  }
+}

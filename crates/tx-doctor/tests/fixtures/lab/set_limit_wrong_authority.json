@@ -1,0 +1,40 @@
+{
+  "signature": "3pawp5piYfrimeZ9ytanL6pTQ1d6BX4yH4gXaDw6eZxuymzVFR9s1iikD9cJYe57ixZbe8wAGeX9oLD7iL9V2ycS",
+  "source": "litesvm",
+  "expected_cause": "anchor_constraint_violation",
+  "expected_error_code": 2001,
+  "expected_error_name": "ConstraintHasOne",
+  "response": {
+    "slot": 0,
+    "blockTime": null,
+    "meta": {
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 2001
+          }
+        ]
+      },
+      "fee": 5000,
+      "computeUnitsConsumed": 3506,
+      "logMessages": [
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY invoke [1]",
+        "Program log: Instruction: SetLimit",
+        "Program log: AnchorError caused by account: vault. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.",
+        "Program log: Left:",
+        "Program log: D3WrmoZqXRrBb7CVfYwVZ9hy1pZ4tzTHUAm6jnw425jT",
+        "Program log: Right:",
+        "Program log: AvtijWnSRre87TJ1rVxGu9xuxrNzfSq9ozVc76xpfWso",
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY consumed 3506 of 200000 compute units",
+        "Program 3RUGuRGUWq9guvxDz9suK6FxHHbuCm3YjtkT5zsSGtSY failed: custom program error: 0x7d1"
+      ]
+    },
+    "transaction": {
+      "signatures": [
+        "3pawp5piYfrimeZ9ytanL6pTQ1d6BX4yH4gXaDw6eZxuymzVFR9s1iikD9cJYe57ixZbe8wAGeX9oLD7iL9V2ycS"
+      ],
+      "message": {}
+    }
+  }
+}
